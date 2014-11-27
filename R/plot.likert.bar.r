@@ -312,7 +312,11 @@ likert.bar.plot <- function(likert,
 								limits=c(ymin - ybuffer, ymax + ybuffer))
 	p <- p + theme(legend.position=legend.position)
 	
-	attr(p, 'item.order') <- levels(results$Item)
+	if (!missing(group.order)) {
+		attr(p, 'item.order') <- group.order
+	} else {
+		attr(p, 'item.order') <- levels(results$Item)
+	}
 	class(p) <- c('likert.bar.plot', class(p))
 	return(p)
 }
