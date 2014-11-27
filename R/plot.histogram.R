@@ -128,7 +128,7 @@ likert.histogram.plot <- function(l,
 			p <- p + facet_wrap(~ Item, nrow=1)
 		}
 		if(!missing(group.order)) {
-			p <- p + scale_x_discrete(limits=rev(group.order))
+			p <- p + scale_x_discrete(limits=group.order)
 		}
 	}
 	class(p) <- c('likert.bar.plot', class(p))
